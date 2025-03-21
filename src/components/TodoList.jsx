@@ -1,3 +1,4 @@
+import InfoPersonnel from "./InfoPersonnel";
 import TaskList from "./TaskList";
 
 const TodoList = () => {
@@ -14,6 +15,7 @@ const TodoList = () => {
             </button>
         </div>
         <TaskList />
+        <InfoPersonnel nom="MacCode" prenom="Harry" age={37} />
     </div>
   )
 }
