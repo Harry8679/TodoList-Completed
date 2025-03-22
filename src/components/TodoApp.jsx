@@ -22,8 +22,15 @@ const TodoApp = () => {
   const addTask = (e) => {
     e.preventDefault();
     // setTasks([])
-    tasks.push({ id: Date.now(), text: taskText });
-    console.log(tasks);
+    // tasks.push({ id: Date.now(), text: taskText });
+    if (taskText.trim() === "") return;
+    setTasks([...tasks, { id: Date.now(), text: taskText }]);
+    setTaskText('');
+  }
+
+  const deleteTask = (id) => {
+    // console.log(id);
+    setTasks(tasks.filter((task) => task.id !== id));
   }
 
   const handleChange = (e) => {
@@ -52,7 +59,11 @@ const TodoApp = () => {
             {tasks.map((task) => (
                 <li key={task.id} 
                     className="flex justify-between bg-gray-500 px-3 py-1 rounded-lg mb-1 text-white">
-                    {task.text}
+                    <span>{task.text}</span>
+                    <button type="submit" onClick={() => deleteTask(task.id)}
+                        className="bg-red-500 px-3 py-1 rounded-md hover:bg-red-700">
+                            Supprimer
+                    </button>
                 </li>
             ))}
         </ul>
