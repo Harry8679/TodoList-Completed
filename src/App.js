@@ -1,13 +1,13 @@
 import { Fragment } from 'react';
 import './App.css';
-import TodoApp from './components/TodoApp';
+// import TodoApp from './components/TodoApp';
 import TodoList from './components/TodoList';
 
 function App() {
   return (
     <Fragment>
       <TodoList />
-      <TodoApp />
+      {/* <TodoApp /> */}
     </Fragment>
   );
 }
