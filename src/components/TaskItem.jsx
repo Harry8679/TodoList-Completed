@@ -12,11 +12,20 @@ const TaskItem = ({ task,editingId, editText, setEditText, startEditing, deleteT
         )}
         <div className="flex gap-2">
             {editingId === task.id ? (
-                <button className="bg-green-500 text-white px-3 py-1 rounded-lg">Sauvegarder</button>
+                <button 
+                    className="bg-green-500 text-white px-3 py-1 rounded-lg"
+                    onClick={() => saveEdit(task.id)}
+                    >Sauvegarder</button>
             ):(
-                <button className="bg-yellow-500 text-white px-3 py-1 rounded-lg">Modifier</button>
+                <button 
+                    className="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600"
+                    onClick={() => startEditing(task.id, task.text)}
+                >Modifier</button>
             )}
-            <button className="bg-red-500 text-white px-3 py-1 rounded-lg">Supprimer</button>
+            <button 
+                className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-700"
+                onClick={() => deleteTask(task.id)}
+                >Supprimer</button>
         </div>
     </li>
   )
